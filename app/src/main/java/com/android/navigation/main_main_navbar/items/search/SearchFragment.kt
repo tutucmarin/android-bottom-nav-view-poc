@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import com.android.navigation.R
 import com.android.navigation.base.BottomNavigationItemFragment
 import com.android.navigation.databinding.FragmentSearchBinding
+import com.android.navigation.extensions.realParentFragment
+import com.android.navigation.main_main_navbar.MainNavigationFragment
 
 
 class SearchFragment : BottomNavigationItemFragment() {
@@ -34,5 +36,8 @@ class SearchFragment : BottomNavigationItemFragment() {
             findNavController().navigate(R.id.action_searchFragment_to_searchResultsFragment)
         }
 
+        binding.selectLikedTabButton.setOnClickListener {
+            realParentFragment<MainNavigationFragment>()?.selectTabWithId(R.id.liked_main_navigation)
+        }
     }
 }

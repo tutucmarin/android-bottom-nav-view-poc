@@ -1,11 +1,10 @@
 package com.android.navigation.main_main_navbar
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
+import androidx.annotation.IdRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -116,4 +115,13 @@ class MainNavigationFragment : BottomNavigationHolderFragment() {
             .translationY(height)
             .duration = 200
     }
+
+    //region Public API
+
+    fun selectTabWithId(@IdRes tabId: Int)
+    {
+        binding.bottomNavigationView.selectedItemId = tabId
+    }
+
+    //endregion
 }
